@@ -7,14 +7,19 @@ export class bookmark {
         this.Url = url;
     }
 
-    createbkmark() {
-        let div1 = document.createElement("div");
-        div1.className = "fcontent";
+    static createbkmark() : void {
+        let bkbody = document.getElementById("bkbody");
+        let divs = document.createElement("div");
+        divs.className = "bookmark";
+        bkbody?.appendChild(divs);
 
-        let div2 = document.createElement("div");
+
+       // window.alert("ahlam");
+
+        /*let div2 = document.createElement("div");
         div2.className = " square";
        // div2.appendChild();
-        div1.appendChild(div2);
+        div1.appendChild(div2);*/
 
     }
 }
