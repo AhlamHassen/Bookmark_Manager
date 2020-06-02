@@ -1,5 +1,6 @@
-import { bookmark } from "./bkmark";
+import { Bookmark } from "./Bkmark";
+
 
 let icon = document.getElementById("icon") as HTMLElement || null;
-icon.onclick = () => bookmark.createbkmark();
+icon.onclick = () => Bookmark.createbkmark();
 

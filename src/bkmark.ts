@@ -1,10 +1,11 @@
-export class bookmark {
+export class Bookmark {
 
     static createbkmark(): void {
         let bkbody = document.getElementById("bkbody");
 
         let infoDiv = document.createElement("div");
         infoDiv.className = "hidden";
+        infoDiv.id = "infoDiv";
 
         let inputs = document.createElement("div");
         inputs.className = "inputs";
@@ -37,12 +38,13 @@ export class bookmark {
         bkbody?.appendChild(infoDiv);
 
         let btnId = document.getElementById("btnId") as HTMLButtonElement | null;
-        if(btnId == null) return;
+        if (btnId == null) return; 
 
-        btnId.onclick = () =>  {
+        btnId.onclick = () => {
+            
 
             let bkbody = document.getElementById("bkbody");
-        
+
             let div1 = document.createElement("div");
             div1.className = "bookmark";
             bkbody?.appendChild(div1);
@@ -63,7 +65,7 @@ export class bookmark {
             let span1 = document.createElement("span");
             span1.className = "title";
             span1.id = "sp1";
-        
+
             let span2 = document.createElement("span");
             span2.className = "url";
             span2.id = "sp2";
@@ -75,29 +77,48 @@ export class bookmark {
             div4.appendChild(span2);
 
             div2.appendChild(div4);
-             
-            
+
             let inp1 = document.getElementById("inp1") as HTMLInputElement || null;
             let inp2 = document.getElementById("inp2") as HTMLInputElement || null;
-            
-            if(inp1 == null || inp2 == null) return;
+
+            if (inp1 == null || inp2 == null) return;
             let value1 = inp1.value;
             let value2 = inp2.value;
+
+            let sp1 = document.getElementById("sp1");
+            let sp2 = document.getElementById("sp2");
+
+            if (sp1 == null || sp2 == null) return;
+            sp1.innerHTML = value1;
+            sp2.innerHTML = value2;
 
             console.log(value1);
             console.log(value2);
 
-            let sp1 = document.getElementById("sp1");
-            let sp2 = document.getElementById("sp2");
-            
-            if(sp1 == null || sp2 == null) return;
-            sp1.innerHTML = value1;
-            sp2.innerHTML = value2;
+           
+            let infoDiv = document.getElementById("infoDiv") as HTMLDivElement || null;
+        
+            if(infoDiv.style.display === "none"){
+                infoDiv.style.display = "block";
+            }
+            else{
+                //infoDiv.parentNode?.removeChild(infoDiv);
+               // infoDiv.style.display = "none";
+                sp1.innerHTML = value1;
+                sp2.innerHTML = value2;
+                infoDiv.remove();
+            }
 
 
         }
 
+       
 
+    }
+
+    public static () : void {
+
+       
 
     }
 
