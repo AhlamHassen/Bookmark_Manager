@@ -1,13 +1,6 @@
 export class bookmark {
-    Title: string;
-    Url: string;
 
-    constructor(title: string, url: string) {
-        this.Title = title;
-        this.Url = url;
-    }
-
-    static createbkmark() : void {
+    static createbkmark(): void {
         let bkbody = document.getElementById("bkbody");
 
         let infoDiv = document.createElement("div");
@@ -16,20 +9,23 @@ export class bookmark {
         let inputs = document.createElement("div");
         inputs.className = "inputs";
 
-        let input1 =  document.createElement("input");
+        let input1 = document.createElement("input");
         input1.type = "text";
         input1.className = "input1";
+        input1.id = "inp1";
         input1.placeholder = "enter the title of the book ...";
 
         let lynBreak = document.createElement("br");
 
-        let input2 =  document.createElement("input");
+        let input2 = document.createElement("input");
         input2.type = "text";
         input2.className = "input2";
+        input2.id = "inp2";
         input2.placeholder = "enter the url of the book ...";
 
         let btn = document.createElement("button");
         btn.className = "btn";
+        btn.id = "btnId";
         btn.innerHTML = "enter";
 
         inputs.appendChild(input1);
@@ -40,45 +36,72 @@ export class bookmark {
         infoDiv.appendChild(inputs);
         bkbody?.appendChild(infoDiv);
 
+        let btnId = document.getElementById("btnId") as HTMLButtonElement | null;
+        if(btnId == null) return;
+
+        btnId.onclick = () =>  {
+
+            let bkbody = document.getElementById("bkbody");
         
+            let div1 = document.createElement("div");
+            div1.className = "bookmark";
+            bkbody?.appendChild(div1);
 
+            let div2 = document.createElement("div");
+            div2.className = "fcontent";
+            div1.appendChild(div2);
 
+            let div3 = document.createElement("div");
+            div3.className = "square";
+            div3.innerHTML = '<i class="far fa-square">';
+            div2.appendChild(div3);
 
-    }
+            let div4 = document.createElement("div");
+            div4.className = "txtwidth";
+            div4.id = "txt";
 
-    public fillInInfo():void {
-        let bkbody = document.getElementById("bkbody");
+            let span1 = document.createElement("span");
+            span1.className = "title";
+            span1.id = "sp1";
         
-        let div1 = document.createElement("div");
-        div1.className = "bookmark";
-        bkbody?.appendChild(div1);
+            let span2 = document.createElement("span");
+            span2.className = "url";
+            span2.id = "sp2";
 
-        let div2 = document.createElement("div");
-        div2.className = "fcontent";
-        div1.appendChild(div2);
+            let linebreak = document.createElement("br");
 
-        let div3 = document.createElement("div");
-        div3.className = "square";
-        div3.innerHTML = '<i class="far fa-square">';
-        div2.appendChild(div3);
-        
-        let div4 = document.createElement("div");
-        div4.className = "txtwidth";
-        div4.id = "txt";
-        let span1 = document.createElement("span");
-        span1.className = "title";
-        let span2 = document.createElement("span");
-        span2.className = "url";
-        let linebreak = document.createElement("br");
-        div4.appendChild(span1);
-        div4.appendChild(linebreak);
-        div4.appendChild(span2);
+            div4.appendChild(span1);
+            div4.appendChild(linebreak);
+            div4.appendChild(span2);
 
-        div2.appendChild(div4);
+            div2.appendChild(div4);
+             
+            
+            let inp1 = document.getElementById("inp1") as HTMLInputElement || null;
+            let inp2 = document.getElementById("inp2") as HTMLInputElement || null;
+            
+            if(inp1 == null || inp2 == null) return;
+            let value1 = inp1.value;
+            let value2 = inp2.value;
+
+            console.log(value1);
+            console.log(value2);
+
+            let sp1 = document.getElementById("sp1");
+            let sp2 = document.getElementById("sp2");
+            
+            if(sp1 == null || sp2 == null) return;
+            sp1.innerHTML = value1;
+            sp2.innerHTML = value2;
+
+
+        }
+
+
 
     }
 
 }
 
-    
+
 
