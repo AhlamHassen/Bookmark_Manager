@@ -33,7 +33,6 @@
             height: 30px;
             z-index: 2;
             font-size: 23px;
-
         }
         #title {
             float: left;
@@ -59,7 +58,7 @@
             width:20px;
             font-size: 1.2em;
         }
-        .txt {
+        #txt {
             float:left;
             width:80%;
             font-size: 16px;
@@ -72,6 +71,12 @@
         }
         .url{
             font-size:11px;
+        }
+        .hidden{
+            border: 1px solid black;
+            margin-top: 10px;
+            width:320px;
+            height: 100px;
         }
 
         
@@ -86,16 +91,18 @@
                 <span id="title">Bookmarks</span> <span id="icon"><i class="fas fa-plus-circle"></i></span>
             </div>
 
-            <div class="bookmark">
-                <div class="fcontent">
-                    <div class="square"><i class="far fa-square"></i></div>
-                    <div class="txt" class="txtwidth">Ahlam SalehHassen <br/>
+            <div class="bookmark"> <!--div1/ the bookmark-->
+                <div class="fcontent"> <!--div2-->
+                    <div class="square"><i class="far fa-square"></i></div> <!--div3-->
+                    <div id="txt" class="txtwidth"> <span class="title">Ahlam Saleh Hassen </span><br/>
                      <span class="url">
                          <a href="https://www.youtube.com/watch?v=9X88k6kTuNw">
-                         https://www.youtube.com/watch?v=9X88k6kTuNw</a></span></div>
-                    
+                         https://www.youtube.com/watch?v=9X88k6kTuNw</a></span>
+                    </div> <!--div4-->
                 </div>
             </div>
+
+            <div class="hidden"></div>
 
         </div>
 
