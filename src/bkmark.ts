@@ -8,8 +8,47 @@ export class bookmark {
     }
 
     static createbkmark() : void {
-        let infoDiv = document.createElement("div");
         let bkbody = document.getElementById("bkbody");
+
+        let infoDiv = document.createElement("div");
+        infoDiv.className = "hidden";
+
+        let inputs = document.createElement("div");
+        inputs.className = "inputs";
+
+        let input1 =  document.createElement("input");
+        input1.type = "text";
+        input1.className = "input1";
+        input1.placeholder = "enter the title of the book ...";
+
+        let lynBreak = document.createElement("br");
+
+        let input2 =  document.createElement("input");
+        input2.type = "text";
+        input2.className = "input2";
+        input2.placeholder = "enter the url of the book ...";
+
+        let btn = document.createElement("button");
+        btn.className = "btn";
+        btn.innerHTML = "enter";
+
+        inputs.appendChild(input1);
+        inputs.appendChild(lynBreak);
+        inputs.appendChild(input2);
+        inputs.appendChild(btn);
+
+        infoDiv.appendChild(inputs);
+        bkbody?.appendChild(infoDiv);
+
+        
+
+
+
+    }
+
+    public fillInInfo():void {
+        let bkbody = document.getElementById("bkbody");
+        
         let div1 = document.createElement("div");
         div1.className = "bookmark";
         bkbody?.appendChild(div1);
@@ -38,4 +77,8 @@ export class bookmark {
         div2.appendChild(div4);
 
     }
+
 }
+
+    
+
