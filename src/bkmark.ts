@@ -14,7 +14,7 @@ export class Bookmark {
         input1.type = "text";
         input1.className = "input1";
         input1.id = "inp1";
-        input1.placeholder = "enter the title of the book ...";
+        input1.placeholder = "enter the title of the webpage ...";
 
         let lynBreak = document.createElement("br");
 
@@ -22,7 +22,7 @@ export class Bookmark {
         input2.type = "text";
         input2.className = "input2";
         input2.id = "inp2";
-        input2.placeholder = "enter the url of the book ...";
+        input2.placeholder = "enter the url of the webpage ...";
 
         let btn = document.createElement("button");
         btn.className = "btn";
@@ -39,6 +39,8 @@ export class Bookmark {
 
         let btnId = document.getElementById("btnId") as HTMLButtonElement | null;
         if (btnId == null) return;
+
+       //========================================\\
 
         btnId.onclick = (): void => {
 
@@ -68,8 +70,6 @@ export class Bookmark {
             let span2 = document.createElement("span");
             span2.className = "url";
             span2.id = "sp2";
-           /* let link = document.createElement("a");
-            span2.appendChild(link);*/
 
             let linebreak = document.createElement("br");
 
@@ -100,12 +100,11 @@ export class Bookmark {
                     link.appendChild(linkText);
                     link.href = value2;
                     link.target = "_blank";
-                    
+
                     sp2[i].appendChild(link);
                     
                 }
             }
-
 
              console.log(value1);
              console.log(value2);
