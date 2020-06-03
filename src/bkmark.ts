@@ -68,6 +68,8 @@ export class Bookmark {
             let span2 = document.createElement("span");
             span2.className = "url";
             span2.id = "sp2";
+           /* let link = document.createElement("a");
+            span2.appendChild(link);*/
 
             let linebreak = document.createElement("br");
 
@@ -92,7 +94,14 @@ export class Bookmark {
             for (let i = 1; i < sp1.length; i++) {
                 if (i == (sp1.length - 1)) {
                     sp1[i].innerHTML = value1;
-                    sp2[i].innerHTML = value2;
+                    let link = document.createElement("a");
+                    let linkText = document.createTextNode(value2);
+                    link.appendChild(linkText);
+                    link.href = value2;
+                
+                   // span2.appendChild(link);
+                    sp2[i].appendChild(link);
+                    
                 }
             }
 
