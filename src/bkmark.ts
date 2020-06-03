@@ -38,10 +38,9 @@ export class Bookmark {
         bkbody?.appendChild(infoDiv);
 
         let btnId = document.getElementById("btnId") as HTMLButtonElement | null;
-        if (btnId == null) return; 
+        if (btnId == null) return;
 
-        btnId.onclick = () => {
-            
+        btnId.onclick = (): void => {
 
             let bkbody = document.getElementById("bkbody");
 
@@ -85,40 +84,32 @@ export class Bookmark {
             let value1 = inp1.value;
             let value2 = inp2.value;
 
-            let sp1 = document.getElementById("sp1");
-            let sp2 = document.getElementById("sp2");
+            let sp1 = document.getElementsByClassName("title");
+            let sp2 = document.getElementsByClassName("url");
 
             if (sp1 == null || sp2 == null) return;
-            sp1.innerHTML = value1;
-            sp2.innerHTML = value2;
 
-            console.log(value1);
-            console.log(value2);
+            for (let i = 1; i < sp1.length; i++) {
+                if (i == (sp1.length - 1)) {
+                    sp1[i].innerHTML = value1;
+                    sp2[i].innerHTML = value2;
+                }
+            }
 
-           
+
+             console.log(value1);
+             console.log(value2);
+
+
             let infoDiv = document.getElementById("infoDiv") as HTMLDivElement || null;
-        
-            if(infoDiv.style.display === "none"){
+            if (infoDiv.style.display === "none") {
                 infoDiv.style.display = "block";
             }
-            else{
-                //infoDiv.parentNode?.removeChild(infoDiv);
-               // infoDiv.style.display = "none";
-                sp1.innerHTML = value1;
-                sp2.innerHTML = value2;
+            else {
                 infoDiv.remove();
             }
 
-
         }
-
-       
-
-    }
-
-    public static () : void {
-
-       
 
     }
 
