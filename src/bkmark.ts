@@ -94,12 +94,13 @@ export class Bookmark {
             for (let i = 1; i < sp1.length; i++) {
                 if (i == (sp1.length - 1)) {
                     sp1[i].innerHTML = value1;
+
                     let link = document.createElement("a");
                     let linkText = document.createTextNode(value2);
                     link.appendChild(linkText);
                     link.href = value2;
-                
-                   // span2.appendChild(link);
+                    link.target = "_blank";
+                    
                     sp2[i].appendChild(link);
                     
                 }
