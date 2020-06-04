@@ -1,6 +1,15 @@
 export class Bookmark {
 
-    static createbkmark() :void {
+    Title: string;
+    Url: string;
+
+    constructor(title: string, url: string) {
+        this.Title = title;
+        this.Url = url;
+    }
+
+
+    createbkmark() :void {
         let bkbody = document.getElementById("bkbody");
 
         let infoDiv = document.createElement("div");
@@ -95,8 +104,8 @@ export class Bookmark {
             let inp2 = document.getElementById("inp2") as HTMLInputElement || null;
 
             if (inp1 == null || inp2 == null) return;
-            let value1 = inp1.value;
-            let value2 = inp2.value;
+            this.Title = inp1.value;
+            this.Url = inp2.value;
 
 
             let sp1 = document.getElementsByClassName("title");
@@ -107,12 +116,12 @@ export class Bookmark {
             for (let i = 1; i < sp1.length; i++) {
                 if (i == (sp1.length - 1)) {
 
-                    sp1[i].innerHTML = value1;
+                    sp1[i].innerHTML = this.Title;
 
                     let link = document.createElement("a");
                     let linkText = document.createTextNode(this.Url);
                     link.appendChild(linkText);
-                    link.href = value2;
+                    link.href = this.Url;
                     link.target = "_blank";
 
                     sp2[i].appendChild(link);

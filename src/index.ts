@@ -1,9 +1,16 @@
 import { Bookmark } from "./Bkmark";
 
+let Bookmarks : Bookmark[] = [];
 
 let icon = document.getElementById("icon") as HTMLElement || null;
 if ( icon == null) window.alert("icon not found");
-icon.onclick = () => Bookmark.createbkmark();
+
+icon.onclick = () => {
+    let b1 = new Bookmark ("","");
+    b1.createbkmark();
+    Bookmarks.push(b1);
+
+}
 
 let bkbody = document.getElementById("bkbody") as HTMLElement;
 bkbody.onscroll = () => {
