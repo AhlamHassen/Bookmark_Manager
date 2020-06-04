@@ -2,6 +2,7 @@ import { Bookmark } from "./Bkmark";
 
 
 let icon = document.getElementById("icon") as HTMLElement || null;
+if ( icon == null) window.alert("icon not found");
 icon.onclick = () => Bookmark.createbkmark();
 
 let bkbody = document.getElementById("bkbody") as HTMLElement;
@@ -19,24 +20,12 @@ bkbody.onscroll = () => {
     }
 }
 
-/*let squareIcon = document.getElementsByClassName("square") as unknown as HTMLElement;
-if (squareIcon == null) window.alert("Icon not found");
-
-squareIcon.onclick = () => {
-    for (let i = 0; i < squareIcon.length; i++) {
-        squareIcon[i].style.color = "red";
-    }
-
-};*/
-
 let sqIcon = document.getElementById("squareId") as HTMLElement;
-if(sqIcon == null) window.alert("Icon not found");
-sqIcon.onclick = () =>{
-    if( sqIcon.style.color == "red"){
+sqIcon.onclick = () => {
+    if (sqIcon.style.color == "red") {
         sqIcon.style.color = "black";
     }
-    else{
-        sqIcon.style.color = "red"
+    else {
+        sqIcon.style.color = "red";
     }
-    
 }

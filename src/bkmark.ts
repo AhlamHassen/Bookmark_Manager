@@ -1,6 +1,6 @@
 export class Bookmark {
 
-    static createbkmark(): void {
+    static createbkmark() :void {
         let bkbody = document.getElementById("bkbody");
 
         let infoDiv = document.createElement("div");
@@ -40,7 +40,7 @@ export class Bookmark {
         let btnId = document.getElementById("btnId") as HTMLButtonElement | null;
         if (btnId == null) return;
 
-       //========================================\\
+        //========================================\\
 
         btnId.onclick = (): void => {
 
@@ -58,6 +58,18 @@ export class Bookmark {
             div3.className = "square";
             div3.innerHTML = '<i class="far fa-square">';
             div2.appendChild(div3);
+
+
+            div3.onclick = () => {
+
+                if (div3.style.color == "red") {
+                    div3.style.color = "black";
+                }
+                else {
+                    div3.style.color = "red";
+                }
+
+            }
 
             let div4 = document.createElement("div");
             div4.className = "txtwidth";
@@ -86,6 +98,7 @@ export class Bookmark {
             let value1 = inp1.value;
             let value2 = inp2.value;
 
+
             let sp1 = document.getElementsByClassName("title");
             let sp2 = document.getElementsByClassName("url");
 
@@ -93,22 +106,19 @@ export class Bookmark {
 
             for (let i = 1; i < sp1.length; i++) {
                 if (i == (sp1.length - 1)) {
+
                     sp1[i].innerHTML = value1;
 
                     let link = document.createElement("a");
-                    let linkText = document.createTextNode(value2);
+                    let linkText = document.createTextNode(this.Url);
                     link.appendChild(linkText);
                     link.href = value2;
                     link.target = "_blank";
 
                     sp2[i].appendChild(link);
-                    
+
                 }
             }
-
-             console.log(value1);
-             console.log(value2);
-
 
             let infoDiv = document.getElementById("infoDiv") as HTMLDivElement || null;
             if (infoDiv.style.display === "none") {
