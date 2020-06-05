@@ -8,8 +8,7 @@ export class Bookmark {
         this.Url = url;
     }
 
-
-    createbkmark() :void {
+    createbkmark(): void {
         let bkbody = document.getElementById("bkbody");
 
         let infoDiv = document.createElement("div");
@@ -46,10 +45,13 @@ export class Bookmark {
         infoDiv.appendChild(inputs);
         bkbody?.appendChild(infoDiv);
 
+        this.CreateTheBkmark();
+    }
+
+    CreateTheBkmark() {
+
         let btnId = document.getElementById("btnId") as HTMLButtonElement | null;
         if (btnId == null) return;
-
-        //========================================\\
 
         btnId.onclick = (): void => {
 
@@ -68,16 +70,13 @@ export class Bookmark {
             div3.innerHTML = '<i class="far fa-square">';
             div2.appendChild(div3);
 
-
             div3.onclick = () => {
-
                 if (div3.style.color == "red") {
                     div3.style.color = "black";
                 }
                 else {
                     div3.style.color = "red";
                 }
-
             }
 
             let div4 = document.createElement("div");
@@ -100,46 +99,53 @@ export class Bookmark {
 
             div2.appendChild(div4);
 
-            let inp1 = document.getElementById("inp1") as HTMLInputElement || null;
-            let inp2 = document.getElementById("inp2") as HTMLInputElement || null;
+            this.insertInfoToBookmark();
+            this.removeInformationDiv();
+        }
+    }
 
-            if (inp1 == null || inp2 == null) return;
-            this.Title = inp1.value;
-            this.Url = inp2.value;
+    insertInfoToBookmark() {
+        let inp1 = document.getElementById("inp1") as HTMLInputElement || null;
+        let inp2 = document.getElementById("inp2") as HTMLInputElement || null;
 
+        if (inp1 == null || inp2 == null) return;
+        this.Title = inp1.value;
+        this.Url = inp2.value;
 
-            let sp1 = document.getElementsByClassName("title");
-            let sp2 = document.getElementsByClassName("url");
+        let sp1 = document.getElementsByClassName("title");
+        let sp2 = document.getElementsByClassName("url");
 
-            if (sp1 == null || sp2 == null) return;
+        if (sp1 == null || sp2 == null) return;
+        for (let i = 1; i < sp1.length; i++) {
+            if (i == (sp1.length - 1)) {
 
-            for (let i = 1; i < sp1.length; i++) {
-                if (i == (sp1.length - 1)) {
+                sp1[i].innerHTML = this.Title;
 
-                    sp1[i].innerHTML = this.Title;
+                let link = document.createElement("a");
+                let linkText = document.createTextNode(this.Url);
+                link.appendChild(linkText);
+                link.href = this.Url;
+                link.target = "_blank";
 
-                    let link = document.createElement("a");
-                    let linkText = document.createTextNode(this.Url);
-                    link.appendChild(linkText);
-                    link.href = this.Url;
-                    link.target = "_blank";
+                sp2[i].appendChild(link);
 
-                    sp2[i].appendChild(link);
-
-                }
             }
-
-            let infoDiv = document.getElementById("infoDiv") as HTMLDivElement || null;
-            if (infoDiv.style.display === "none") {
-                infoDiv.style.display = "block";
-            }
-            else {
-                infoDiv.remove();
-            }
-
         }
 
     }
+
+    removeInformationDiv() {
+        let infoDiv = document.getElementById("infoDiv") as HTMLDivElement || null;
+        if (infoDiv == null) return;
+        if (infoDiv.style.display === "none") {
+            infoDiv.style.display = "block";
+        }
+        else {
+            infoDiv.remove();
+        }
+
+    }
+
 
 }
 
