@@ -9,59 +9,58 @@ export class Bookmark {
     }
 
     createbkmark(): void {
-        let bkbody = document.getElementById("bkbody");
+        let bkbody = document.getElementById("bkbody"); 
 
-        let infoDiv = document.createElement("div");
+        let infoDiv = document.createElement("div"); 
         infoDiv.className = "hidden";
         infoDiv.id = "infoDiv";
 
-        let inputs = document.createElement("div");
+        let inputs = document.createElement("div"); 
         inputs.className = "inputs";
 
-        let input1 = document.createElement("input");
+        let input1 = document.createElement("input"); 
         input1.type = "text";
         input1.className = "input1";
         input1.id = "inp1";
         input1.placeholder = "enter the title of the webpage ...";
 
-        let lynBreak = document.createElement("br");
+        let lynBreak = document.createElement("br"); 
 
-        let input2 = document.createElement("input");
+        let input2 = document.createElement("input"); 
         input2.type = "text";
         input2.className = "input2";
         input2.id = "inp2";
         input2.placeholder = "enter the url of the webpage ...";
 
-        let btn = document.createElement("button");
+        let btn = document.createElement("button"); 
         btn.className = "btn";
         btn.id = "btnId";
         btn.innerHTML = "enter";
 
-        inputs.appendChild(input1);
+        inputs.appendChild(input1);  
         inputs.appendChild(lynBreak);
         inputs.appendChild(input2);
         inputs.appendChild(btn);
 
-        infoDiv.appendChild(inputs);
-        bkbody?.appendChild(infoDiv);
-
-        this.CreateTheBkmark();
+        infoDiv.appendChild(inputs); 
+        bkbody?.appendChild(infoDiv); 
+        this.CreateTheBkmark(); 
     }
 
     CreateTheBkmark() {
 
-        let btnId = document.getElementById("btnId") as HTMLButtonElement | null;
+        let btnId = document.getElementById("btnId") as HTMLButtonElement | null; 
         if (btnId == null) return;
 
         btnId.onclick = (): void => {
 
-            let bkbody = document.getElementById("bkbody");
+            let bkbody = document.getElementById("bkbody"); 
 
-            let div1 = document.createElement("div");
+            let div1 = document.createElement("div"); 
             div1.className = "bookmark";
             bkbody?.appendChild(div1);
 
-            let div2 = document.createElement("div");
+            let div2 = document.createElement("div"); 
             div2.className = "fcontent";
             div1.appendChild(div2);
 
@@ -70,7 +69,7 @@ export class Bookmark {
             div3.innerHTML = '<i class="far fa-square">';
             div2.appendChild(div3);
 
-            div3.onclick = () => {
+            div3.onclick = () => {                   
                 if (div3.style.color == "red") {
                     div3.style.color = "black";
                 }
@@ -99,7 +98,7 @@ export class Bookmark {
 
             div2.appendChild(div4);
 
-            this.insertInfoToBookmark();
+            this.insertInfoToBookmark(); 
             this.removeInformationDiv();
         }
     }
